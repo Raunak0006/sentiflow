@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SentiFlow - Advanced NLP & Sentiment Intelligence Suite</title>
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Chart.js loaded via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Styling Sheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Block -->
+    <header class="app-header">
+      <div class="header-logo-section">
+        <div class="header-glow-logo">SF</div>
+        <div class="header-text">
+          <h1>SentiFlow</h1>
+          <p>Advanced NLP & Sentiment Intelligence Suite</p>
+        </div>
+      </div>
+      <div class="header-status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text">Linguistic Engine V2.1 Active</span>
+      </div>
+    </header>
+
+    <!-- Tabbed Navigation Bar -->
+    <nav class="app-nav">
+      <button class="nav-tab active" data-tab="sandbox">
+        <svg class="tab-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        Linguistic Sandbox
+      </button>
+      <button class="nav-tab" data-tab="stream">
+        <svg class="tab-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>
+        Intelligence Stream
+      </button>
+      <button class="nav-tab" data-tab="batch">
+        <svg class="tab-icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+        Bulk Document Processor
+      </button>
+      <button class="nav-tab" data-tab="tuning">
+        <svg class="tab-icon" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+        Lexicon Tuning Studio
+      </button>
+    </nav>
+
+    <!-- Main Workspace Container -->
+    <main class="app-main">
+      
+      <!-- 1. LINGUISTIC SANDBOX TAB -->
+      <section id="tab-sandbox" class="tab-content active">
+        <div class="dashboard-grid">
+          <!-- Sandbox Left: Input & Tools -->
+          <div class="panel glass-panel input-panel">
+            <div class="panel-header">
+              <h2>Linguistic Sandbox</h2>
+              <span class="badge badge-purple">Real-time Analyzer</span>
+            </div>
+            
+            <div class="panel-body">
+              <div class="textarea-container">
+                <textarea id="sandbox-textarea" placeholder="Type or paste customer feedback, social comments, or reviews here to analyze..."></textarea>
+                <div class="textarea-actions">
+                  <span id="char-word-count">0 characters | 0 words</span>
+                  <button id="clear-sandbox-btn" class="btn btn-secondary">Clear</button>
+                </div>
+              </div>
+
+              <!-- Sample Prompts -->
+              <div class="sample-presets">
+                <h3>Try a Pre-configured Sentiment Template:</h3>
+                <div class="preset-buttons">
+                  <button class="preset-btn" data-text="The new product release is an absolute masterpiece! Outstanding, gorgeous design and exceptionally clean performance. Love it! 😍">Positive Review</button>
+                  <button class="preset-btn" data-text="This is a horrible, defective product. Awful customer care, useless manual and the item arrived broken. Waste of money. Avoid at all costs! 😡">Negative Review</button>
+                  <button class="preset-btn" data-text="The box was standard cardboard. The device is moderate, okay size, neither fast nor slow. Decent value for money, I suppose.">Neutral Review</button>
+                  <button class="preset-btn" data-text="The shipping speed wasn't bad, actually quite fast! But the product itself isn't great. Extremely overpriced for the build quality.">Negation & Contrast</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sandbox Right: Sentiment Dashboard -->
+          <div class="panel glass-panel dashboard-results-panel">
+            <div class="panel-header">
+              <h2>Linguistic Analytics</h2>
+              <span class="badge badge-emerald" id="engine-badge">Engine VADER Ready</span>
+            </div>
+            
+            <div class="panel-body flex-col">
+              <!-- Summary Card Grid -->
+              <div class="sentiment-cards-row">
+                <!-- Sentiment Category card -->
+                <div class="result-card" id="sentiment-cat-card">
+                  <span class="result-card-label">CLASSIFICATION</span>
+                  <h3 id="sentiment-cat-text">Neutral</h3>
+                  <div class="result-card-glow"></div>
+                </div>
+
+                <!-- Sentiment Score card -->
+                <div class="result-card" id="sentiment-score-card">
+                  <span class="result-card-label">COMPOUND SCORE</span>
+                  <h3 id="sentiment-score-text">0.0000</h3>
+                  <div class="result-card-glow"></div>
+                </div>
+              </div>
+
+              <!-- Gauge Visualization -->
+              <div class="visualizer-container">
+                <div class="radial-gauge-wrapper">
+                  <svg class="radial-gauge" viewBox="0 0 120 120">
+                    <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="gauge-fill" id="gauge-fill-circle" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+                  </svg>
+                  <div class="gauge-val-overlay">
+                    <span id="gauge-percent">0%</span>
+                    <span class="gauge-sub">Valence</span>
+                  </div>
+                </div>
+                <div class="gauge-legend">
+                  <span class="legend-item neg">Negative (-1.0)</span>
+                  <span class="legend-item neu">Neutral (0.0)</span>
+                  <span class="legend-item pos">Positive (+1.0)</span>
+                </div>
+              </div>
+
+              <!-- Text metrics Grid -->
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="metric-val" id="metric-sentences">0</span>
+                  <span class="metric-lbl">Sentences</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val" id="metric-avg-len">0</span>
+                  <span class="metric-lbl">Avg. Words/Sent</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val" id="metric-read-time">0s</span>
+                  <span class="metric-lbl">Est. Read Time</span>
+                </div>
+              </div>
+
+              <!-- Word Frequency chart -->
+              <div class="keywords-panel">
+                <h3>Top Extracted Keywords (Excl. Stopwords)</h3>
+                <div class="chart-wrapper">
+                  <canvas id="sandbox-keyword-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Sentence-by-sentence analysis -->
+        <div class="panel glass-panel sentence-breakdown-panel margin-top-20">
+          <div class="panel-header">
+            <h2>Detailed Linguistic Breakdown</h2>
+            <p class="panel-subtitle">Click a sentence below to inspect individual token weights, negations, and intensifiers.</p>
+          </div>
+          <div class="panel-body">
+            <div class="sentence-interactive-viewer">
+              <div class="sentences-list" id="sentence-highlighter-area">
+                <p class="placeholder-text">Please type something in the sandbox to see sentence breaks.</p>
+              </div>
+              <div class="sentence-inspector" id="sentence-details-inspector">
+                <h3>Linguistic Inspector</h3>
+                <div class="inspector-content">
+                  <p class="placeholder-text">Select a sentence on the left to analyze word-by-word valence contributions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. INTELLIGENCE STREAM TAB -->
+      <section id="tab-stream" class="tab-content">
+        <div class="dashboard-grid">
+          <!-- Stream Left: The Live Ticker -->
+          <div class="panel glass-panel live-feed-panel">
+            <div class="panel-header">
+              <h2>Linguistic Live Feed</h2>
+              <div class="stream-controls">
+                <select id="stream-category-select" class="select-input">
+                  <option value="tech">Technology Product Launch</option>
+                  <option value="food">Gourmet Food Delivery</option>
+                  <option value="movies">Cinematic Summer Blockbuster</option>
+                  <option value="ecommerce">E-commerce Marketplace Store</option>
+                </select>
+                <button id="stream-toggle-btn" class="btn btn-primary">Pause Stream</button>
+              </div>
+            </div>
+            
+            <div class="panel-body">
+              <div class="live-scroll-container" id="stream-ticker-container">
+                <!-- Incoming feed elements go here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream Right: Time-Series Trends -->
+          <div class="panel glass-panel stream-chart-panel">
+            <div class="panel-header">
+              <h2>Linguistic Trend Analysis</h2>
+              <span class="badge badge-purple" id="stream-status">Ticking...</span>
+            </div>
+            <div class="panel-body flex-col">
+              <!-- Live Metrics Panel -->
+              <div class="stream-metrics-summary">
+                <div class="st-metric">
+                  <span class="st-lbl">Total Analyzed</span>
+                  <span class="st-val" id="stream-stat-total">0</span>
+                </div>
+                <div class="st-metric text-emerald">
+                  <span class="st-lbl">Positive %</span>
+                  <span class="st-val" id="stream-stat-pos">0%</span>
+                </div>
+                <div class="st-metric text-orange">
+                  <span class="st-lbl">Neutral %</span>
+                  <span class="st-val" id="stream-stat-neu">0%</span>
+                </div>
+                <div class="st-metric text-crimson">
+                  <span class="st-lbl">Negative %</span>
+                  <span class="st-val" id="stream-stat-neg">0%</span>
+                </div>
+              </div>
+
+              <!-- Trend Line Chart -->
+              <div class="trend-chart-wrapper">
+                <canvas id="stream-trend-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. BULK DOCUMENT PROCESSOR TAB -->
+      <section id="tab-batch" class="tab-content">
+        <div class="dashboard-grid">
+          <!-- Bulk Left: Upload & Columns -->
+          <div class="panel glass-panel upload-panel">
+            <div class="panel-header">
+              <h2>Bulk Document Processor</h2>
+              <span class="badge badge-emerald">Drag & Drop Enabled</span>
+            </div>
+            <div class="panel-body">
+              <!-- Drag and drop zone -->
+              <div class="upload-dropzone" id="bulk-dropzone">
+                <svg class="upload-icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                <p>Drag & Drop your <strong>CSV</strong>, <strong>JSON</strong>, or <strong>TXT</strong> file here</p>
+                <span>or click to browse local files</span>
+                <input type="file" id="bulk-file-input" accept=".csv,.json,.txt" class="hidden-input" />
+              </div>
+
+              <!-- File Information Details -->
+              <div class="file-details-card hidden" id="file-info-container">
+                <h3>Uploaded Document Properties</h3>
+                <table class="simple-table">
+                  <tr>
+                    <td>Filename:</td>
+                    <td id="file-lbl-name" class="table-bold">-</td>
+                  </tr>
+                  <tr>
+                    <td>File Size:</td>
+                    <td id="file-lbl-size">-</td>
+                  </tr>
+                  <tr>
+                    <td>Total Rows:</td>
+                    <td id="file-lbl-rows">-</td>
+                  </tr>
+                </table>
+
+                <div class="column-mapping-control margin-top-15">
+                  <label for="column-selector">Select Text Column to Analyze:</label>
+                  <select id="column-selector" class="select-input margin-top-5">
+                    <option value="">-- Autodetect --</option>
+                  </select>
+                </div>
+
+                <div class="analysis-btn-wrapper margin-top-15">
+                  <button id="run-bulk-btn" class="btn btn-primary btn-full-width">Run Sentiment Sweep</button>
+                </div>
+              </div>
+
+              <!-- Sample Generator if they don't have a CSV -->
+              <div class="sample-csv-generator margin-top-20">
+                <h3>No Data File?</h3>
+                <p>Generate and parse a mock e-commerce feedback spreadsheet immediately to test features.</p>
+                <button id="generate-bulk-sample-btn" class="btn btn-secondary margin-top-10">Generate Mock Dataset (50 rows)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bulk Right: Aggregated Charts -->
+          <div class="panel glass-panel bulk-charts-panel">
+            <div class="panel-header">
+              <h2>Aggregated Results</h2>
+              <span class="badge badge-purple" id="bulk-results-badge">Idle</span>
+            </div>
+            <div class="panel-body flex-col">
+              <div class="bulk-charts-layout">
+                <!-- Sentiment Distribution (Pie Chart) -->
+                <div class="bulk-pie-chart-wrapper">
+                  <h3>Sentiment Distribution</h3>
+                  <div class="canvas-holder">
+                    <canvas id="bulk-sentiment-pie"></canvas>
+                  </div>
+                </div>
+
+                <!-- Summary Statistics -->
+                <div class="bulk-stats-column">
+                  <h3>Intelligence Summary</h3>
+                  <div class="bulk-summary-table">
+                    <div class="bulk-stat-row">
+                      <span>Total Records:</span>
+                      <span id="bulk-sum-total" class="table-bold">0</span>
+                    </div>
+                    <div class="bulk-stat-row text-emerald">
+                      <span>Positive Reviews:</span>
+                      <span id="bulk-sum-pos">0</span>
+                    </div>
+                    <div class="bulk-stat-row text-orange">
+                      <span>Neutral Reviews:</span>
+                      <span id="bulk-sum-neu">0</span>
+                    </div>
+                    <div class="bulk-stat-row text-crimson">
+                      <span>Negative Reviews:</span>
+                      <span id="bulk-sum-neg">0</span>
+                    </div>
+                    <div class="bulk-stat-row">
+                      <span>Mean Compound Score:</span>
+                      <span id="bulk-sum-avg" class="table-bold">0.0000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Keyword cloud from bulk data -->
+              <div class="keywords-panel margin-top-15">
+                <h3>Top Themes & Nouns</h3>
+                <div class="chart-wrapper">
+                  <canvas id="bulk-keyword-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Paginated Data Table -->
+        <div class="panel glass-panel bulk-table-panel margin-top-20">
+          <div class="panel-header">
+            <h2>Analyzed Document Grid</h2>
+            <div class="table-actions">
+              <input type="text" id="bulk-table-search" placeholder="Search feedback records..." class="text-input" />
+              <select id="bulk-table-filter" class="select-input">
+                <option value="all">All Sentiments</option>
+                <option value="positive">Positive Only</option>
+                <option value="neutral">Neutral Only</option>
+                <option value="negative">Negative Only</option>
+              </select>
+              <button id="bulk-export-csv" class="btn btn-secondary">Export CSV</button>
+            </div>
+          </div>
+          
+          <div class="panel-body">
+            <div class="table-scroll-container">
+              <table class="grid-table" id="bulk-grid-table">
+                <thead>
+                  <tr>
+                    <th>Row ID</th>
+                    <th>Analyzed Text</th>
+                    <th>Classification</th>
+                    <th>Compound Score</th>
+                    <th>Primary Keywords</th>
+                  </tr>
+                </thead>
+                <tbody id="bulk-table-body">
+                  <tr>
+                    <td colspan="5" class="table-placeholder">No dataset analyzed. Please upload a file or generate sample data above.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination controls -->
+            <div class="table-pagination-controls" id="table-pagination">
+              <span id="table-page-info">Showing 0 of 0 records</span>
+              <div class="pagination-buttons">
+                <button id="pag-prev" class="btn btn-secondary" disabled>Prev</button>
+                <button id="pag-next" class="btn btn-secondary" disabled>Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. LEXICON TUNING STUDIO TAB -->
+      <section id="tab-tuning" class="tab-content">
+        <div class="dashboard-grid">
+          <!-- Lexicon Left: Tuning Manager -->
+          <div class="panel glass-panel lexicon-settings-panel">
+            <div class="panel-header">
+              <h2>Lexicon Calibration</h2>
+              <span class="badge badge-purple">Real-time Override</span>
+            </div>
+            <div class="panel-body">
+              <p class="lexicon-desc">
+                The NLP engine classifies sentiment based on a standard semantic valence dictionary. 
+                Using the controls below, you can search existing words, update their emotional weight (-4.0 to +4.0), 
+                add new industry-specific tokens, or reset the dictionary. All changes immediately propagate to current analyses.
+              </p>
+
+              <!-- Add word form -->
+              <div class="tuning-form-card margin-top-15">
+                <h3>Override / Add Custom Word</h3>
+                <div class="form-grid margin-top-10">
+                  <div class="form-group">
+                    <label for="custom-word-input">Word / Emoji:</label>
+                    <input type="text" id="custom-word-input" class="text-input" placeholder="e.g. antigravity, ultra-cool" />
+                  </div>
+                  <div class="form-group">
+                    <label for="custom-valence-input">Valence Score (-4 to +4):</label>
+                    <div class="slider-wrapper">
+                      <input type="range" id="custom-valence-input" min="-4.0" max="4.0" step="0.1" value="0.0" />
+                      <span id="valence-slider-value" class="slider-badge">0.0</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="tuning-form-actions margin-top-15">
+                  <button id="add-custom-word-btn" class="btn btn-primary">Save Word Score</button>
+                  <button id="reset-lexicon-btn" class="btn btn-secondary">Restore Defaults</button>
+                </div>
+              </div>
+
+              <!-- General settings -->
+              <div class="general-nlp-settings-card margin-top-20">
+                <h3>Linguistic Engine Parameters</h3>
+                <div class="settings-toggle-grid margin-top-10">
+                  <div class="toggle-group">
+                    <input type="checkbox" id="param-negations" checked />
+                    <label for="param-negations">Apply Lookback Negations (e.g. "not bad" -> positive)</label>
+                  </div>
+                  <div class="toggle-group">
+                    <input type="checkbox" id="param-intensifiers" checked />
+                    <label for="param-intensifiers">Apply Valence Intensifiers (e.g. "extremely good")</label>
+                  </div>
+                  <div class="toggle-group">
+                    <input type="checkbox" id="param-contrastive" checked />
+                    <label for="param-contrastive">Handle Contrastive Conjunctions (e.g. "but", "however")</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lexicon Right: The Dictionary Browser -->
+          <div class="panel glass-panel dictionary-browser-panel">
+            <div class="panel-header">
+              <h2>Linguistic Dictionary Browser</h2>
+              <div class="dict-actions">
+                <input type="text" id="dict-search-input" placeholder="Search dictionary words..." class="text-input" />
+                <select id="dict-filter-select" class="select-input">
+                  <option value="all">All Words</option>
+                  <option value="positive">Positive (> 0)</option>
+                  <option value="negative">Negative (< 0)</option>
+                  <option value="emojis">Emojis Only</option>
+                  <option value="custom">Custom Overrides</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="panel-body">
+              <div class="dictionary-scroll-wrapper">
+                <table class="grid-table" id="dict-table">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th>Valence Classification</th>
+                      <th>Sentiment Weight</th>
+                      <th>Operations</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dict-table-body">
+                    <!-- Loaded dynamically -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pagination for dictionary browser -->
+              <div class="table-pagination-controls" id="dict-pagination">
+                <span id="dict-page-info">Showing 0-0 of 0 words</span>
+                <div class="pagination-buttons">
+                  <button id="dict-prev" class="btn btn-secondary">Prev</button>
+                  <button id="dict-next" class="btn btn-secondary">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer block -->
+    <footer class="app-footer">
+      <p>&copy; 2026 SentiFlow Sentiment Analysis Engine. Powered by client-side VADER logic. Zero server dependencies.</p>
+    </footer>
+  </div>
+
+  <!-- Script Declarations -->
+  <script src="lexicon.js"></script>
+  <script src="nlp.js"></script>
+  <script src="mockData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
