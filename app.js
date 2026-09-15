@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (sentences.length === 0 || (sentences.length === 1 && sentences[0].sentence.trim() === "")) {
       sentenceHighlighterArea.innerHTML = `<p class="placeholder-text">Please type something in the sandbox to see sentence breaks.</p>`;
       sentenceDetailsInspector.innerHTML = `
-        <h3>Linguistic Inspector</h3>
+        <h3>Word Details</h3>
         <div class="inspector-content">
           <p class="placeholder-text">Select a sentence on the left to analyze word-by-word valence contributions.</p>
         </div>
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sentenceDetailsInspector.innerHTML = "";
 
     const h3 = document.createElement("h3");
-    h3.textContent = "Linguistic Inspector";
+    h3.textContent = "Word Details";
     sentenceDetailsInspector.appendChild(h3);
 
     const container = document.createElement("div");
@@ -563,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
       data: {
         labels: [],
         datasets: [{
-          label: "Linguistic Score (Compound)",
+          label: "Mood Score",
           data: [],
           borderColor: "hsl(280, 75%, 60%)",
           backgroundColor: "hsla(280, 75%, 60%, 0.1)",
@@ -965,7 +965,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Form headers (original columns + output classifications)
     const originalHeaders = Object.keys(bulkRawData[0]);
-    const headers = [...originalHeaders, "Linguistic_Classification", "Compound_Sentiment_Score"];
+    const headers = [...originalHeaders, "Sentiment_Result", "Mood_Score"];
     
     csvContent += headers.map(h => `"${h.replace(/"/g, '""')}"`).join(",") + "\n";
 
@@ -984,7 +984,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "SentiFlow_Linguistic_Report.csv");
+    link.setAttribute("download", "SentiFlow_Results.csv");
     document.body.appendChild(link); // Required for FF
     link.click();
     document.body.removeChild(link);
