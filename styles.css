@@ -13,9 +13,9 @@
   --border-glow-hover: hsla(280, 75%, 60%, 0.6);
   
   /* Text colors */
-  --text-main: hsl(45, 10%, 15%);
-  --text-muted: hsl(45, 10%, 40%);
-  --text-dark: hsl(45, 10%, 25%);
+  --text-main: #000;
+  --text-muted: #000;
+  --text-dark: #000;
 
   /* Accent highlights (Absolutely no blues!) */
   --color-primary: hsl(280, 75%, 60%);        /* Glowing Violet */
@@ -126,9 +126,10 @@ body {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  background: linear-gradient(to right, hsl(45, 10%, 10%), hsl(280, 40%, 40%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #000;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #000;
 }
 
 .header-text p {

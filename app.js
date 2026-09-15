@@ -256,18 +256,18 @@ document.addEventListener("DOMContentLoaded", () => {
             backgroundColor: "hsl(45, 20%, 98%)",
             borderColor: "hsla(280, 75%, 60%, 0.4)",
             borderWidth: 1,
-            titleColor: "hsl(45, 10%, 15%)",
-            bodyColor: "hsl(45, 10%, 25%)"
+            titleColor: "#000",
+            bodyColor: "#000"
           }
         },
         scales: {
           x: {
             grid: { color: "hsla(45, 10%, 80%, 0.5)" },
-            ticks: { color: "hsl(45, 10%, 45%)", stepSize: 1 }
+            ticks: { color: "#000", stepSize: 1 }
           },
           y: {
             grid: { display: false },
-            ticks: { color: "hsl(45, 10%, 25%)", font: { weight: "600" } }
+            ticks: { color: "#000", font: { weight: "600" } }
           }
         }
       }
@@ -588,13 +588,13 @@ document.addEventListener("DOMContentLoaded", () => {
         scales: {
           x: {
             grid: { color: "hsla(45, 10%, 80%, 0.4)" },
-            ticks: { color: "hsl(45, 10%, 45%)", maxTicksLimit: 6 }
+            ticks: { color: "#000", maxTicksLimit: 6 }
           },
           y: {
             min: -1.0,
             max: 1.0,
             grid: { color: "hsla(45, 10%, 80%, 0.5)" },
-            ticks: { color: "hsl(45, 10%, 45%)" }
+            ticks: { color: "#000" }
           }
         }
       }
@@ -1019,7 +1019,7 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: {
             position: "bottom",
-            labels: { color: "hsl(45, 10%, 25%)", boxWidth: 12, font: { weight: "600" } }
+            labels: { color: "#000", boxWidth: 12, font: { weight: "600" } }
           },
           tooltip: {
             backgroundColor: "hsl(45, 20%, 98%)",
@@ -1070,11 +1070,11 @@ document.addEventListener("DOMContentLoaded", () => {
         scales: {
           x: {
             grid: { color: "hsla(45, 10%, 80%, 0.4)" },
-            ticks: { color: "hsl(45, 10%, 45%)" }
+            ticks: { color: "#000" }
           },
           y: {
             grid: { display: false },
-            ticks: { color: "hsl(45, 10%, 25%)", font: { weight: "600" } }
+            ticks: { color: "#000", font: { weight: "600" } }
           }
         }
       }
