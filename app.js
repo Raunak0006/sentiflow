@@ -253,21 +253,21 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: "hsl(270, 4%, 9%)",
+            backgroundColor: "hsl(45, 20%, 98%)",
             borderColor: "hsla(280, 75%, 60%, 0.4)",
             borderWidth: 1,
-            titleColor: "#fff",
-            bodyColor: "hsl(0, 0%, 90%)"
+            titleColor: "hsl(45, 10%, 15%)",
+            bodyColor: "hsl(45, 10%, 25%)"
           }
         },
         scales: {
           x: {
-            grid: { color: "hsla(270, 4%, 20%, 0.3)" },
-            ticks: { color: "hsl(270, 2%, 60%)", stepSize: 1 }
+            grid: { color: "hsla(45, 10%, 80%, 0.5)" },
+            ticks: { color: "hsl(45, 10%, 45%)", stepSize: 1 }
           },
           y: {
             grid: { display: false },
-            ticks: { color: "hsl(0, 0%, 90%)", font: { weight: "600" } }
+            ticks: { color: "hsl(45, 10%, 25%)", font: { weight: "600" } }
           }
         }
       }
@@ -571,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tension: 0.35,
           fill: true,
           pointRadius: 4,
-          pointBackgroundColor: "#fff"
+          pointBackgroundColor: "hsl(280, 75%, 60%)"
         }]
       },
       options: {
@@ -580,21 +580,21 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: "hsl(270, 4%, 9%)",
+            backgroundColor: "hsl(45, 20%, 98%)",
             borderColor: "hsla(280, 75%, 60%, 0.4)",
             borderWidth: 1
           }
         },
         scales: {
           x: {
-            grid: { color: "hsla(270, 4%, 20%, 0.2)" },
-            ticks: { color: "hsl(270, 2%, 60%)", maxTicksLimit: 6 }
+            grid: { color: "hsla(45, 10%, 80%, 0.4)" },
+            ticks: { color: "hsl(45, 10%, 45%)", maxTicksLimit: 6 }
           },
           y: {
             min: -1.0,
             max: 1.0,
-            grid: { color: "hsla(270, 4%, 20%, 0.3)" },
-            ticks: { color: "hsl(270, 2%, 60%)" }
+            grid: { color: "hsla(45, 10%, 80%, 0.5)" },
+            ticks: { color: "hsl(45, 10%, 45%)" }
           }
         }
       }
@@ -1009,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "hsl(38, 90%, 55%)",  // Amber
             "hsl(355, 75%, 55%)"  // Crimson
           ],
-          borderColor: "hsl(270, 4%, 9%)",
+          borderColor: "hsl(45, 20%, 98%)",
           borderWidth: 2
         }]
       },
@@ -1019,10 +1019,10 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: {
             position: "bottom",
-            labels: { color: "hsl(0, 0%, 90%)", boxWidth: 12, font: { weight: "600" } }
+            labels: { color: "hsl(45, 10%, 25%)", boxWidth: 12, font: { weight: "600" } }
           },
           tooltip: {
-            backgroundColor: "hsl(270, 4%, 9%)",
+            backgroundColor: "hsl(45, 20%, 98%)",
             borderColor: "hsla(280, 75%, 60%, 0.4)",
             borderWidth: 1
           }
@@ -1062,19 +1062,19 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: "hsl(270, 4%, 9%)",
+            backgroundColor: "hsl(45, 20%, 98%)",
             borderColor: "hsla(280, 75%, 60%, 0.4)",
             borderWidth: 1
           }
         },
         scales: {
           x: {
-            grid: { color: "hsla(270, 4%, 20%, 0.2)" },
-            ticks: { color: "hsl(270, 2%, 60%)" }
+            grid: { color: "hsla(45, 10%, 80%, 0.4)" },
+            ticks: { color: "hsl(45, 10%, 45%)" }
           },
           y: {
             grid: { display: false },
-            ticks: { color: "hsl(0, 0%, 90%)", font: { weight: "600" } }
+            ticks: { color: "hsl(45, 10%, 25%)", font: { weight: "600" } }
           }
         }
       }

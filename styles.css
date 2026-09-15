@@ -33,7 +33,7 @@
 
   /* Fonts & Shadows */
   --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --panel-shadow: 0 8px 32px 0 hsla(0, 0%, 0%, 0.5);
+  --panel-shadow: 0 4px 20px 0 hsla(45, 10%, 70%, 0.35);
   --transition-speed: 0.3s;
   --transition-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -71,7 +71,7 @@ body {
   background: var(--bg-app);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(45, 10%, 92%);
+  background: hsl(45, 10%, 78%);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -126,7 +126,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  background: linear-gradient(to right, #fff, var(--text-muted));
+  background: linear-gradient(to right, hsl(45, 10%, 10%), hsl(280, 40%, 40%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
